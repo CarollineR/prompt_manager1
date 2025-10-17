@@ -1,0 +1,391 @@
+:root {
+  --white: #ffffff;
+
+  --accent-600: #4863f7;
+  --accent-500: #7878d7;
+
+  --alert-600: #ff5c5c;
+
+  --gray-900: #0d0d0d;
+  --gray-800: #111111;
+  --gray-700: #1a1a1a;
+  --gray-200: #424242;
+  --gray-100: #737373;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray-700);
+  border-radius: 4px;
+}
+
+body,
+input,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--gray-900);
+  color: var(--white);
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+main.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 62px 124px;
+  gap: 32px;
+  position: absolute;
+  width: 1040px;
+  height: 495px;
+  left: 400px;
+  top: 53px;
+  margin-left: 16px;
+  background: var(--gray-800);
+  border-radius: 16px;
+  box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.16);
+  overflow-y: scroll;
+}
+
+.main-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn-outline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  height: 40px;
+  border: 1px solid var(--gray-200);
+  background: transparent;
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.btn-outline:hover {
+  border: 1.5px solid var(--accent-600);
+}
+
+.btn-primary {
+  background: var(--accent-600);
+  color: var(--white);
+  border: 1px solid var(--accent-600);
+  border-radius: 8px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background: var(--accent-500);
+}
+
+.btn.w-150 {
+  width: 150px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.prompt-title {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 24px;
+  margin-bottom: 8px;
+  outline: none;
+  border: none;
+  background: transparent;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  transition: border 0.2s;
+}
+.prompt-title[contenteditable="true"]:focus {
+  border-bottom: 2px solid var(--accent-600);
+}
+
+.prompt-content {
+  font-size: 16px;
+  color: var(--gray-100);
+  background: transparent;
+  outline: none;
+  border: none;
+  line-height: 1.7;
+  border-radius: 8px;
+  padding: 0;
+  transition: border 0.2s;
+}
+.prompt-content[contenteditable="true"]:focus {
+  border: 1.5px solid var(--accent-600);
+  background: var(--gray-700);
+  color: var(--white);
+}
+
+.editable-wrapper {
+  position: relative;
+}
+
+.editable-wrapper::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--gray-100);
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  transform: translateY(0);
+}
+
+.editable-wrapper.is-empty::before {
+  opacity: 1;
+}
+
+#title-wrapper.is-empty {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--gray-200);
+}
+
+#content-wrapper.is-empty {
+  font-size: 16px;
+  color: var(--gray-200);
+  line-height: 32px;
+}
+
+.icon-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.open-toggle {
+  position: absolute;
+  top: 62px;
+  left: 62px;
+}
+
+.sidebar {
+  width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 32px;
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  border-right: 0.5px solid var(--gray-700);
+  background-color: var(--gray-800);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 24px;
+}
+
+/* Sidebar Content MCP Figma */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 0 24px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: var(--gray-800);
+  border-bottom: 1px solid var(--gray-700);
+  padding-bottom: 20px;
+  padding: 0 16px;
+  position: relative;
+  gap: 10px;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.search-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.search-input {
+  flex: 1;
+  height: 44px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-size: 1rem;
+  padding: 12px 0;
+}
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.sidebar-divider {
+  width: 100%;
+  height: 0;
+  border-bottom: 1.5px solid var(--gray-700);
+  margin-top: 12px;
+}
+
+/* Prompt List MCP Figma */
+.prompt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prompt-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--gray-900);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 20px;
+  gap: 10px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+}
+.prompt-item:hover {
+  background: var(--gray-800);
+}
+
+.prompt-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.prompt-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prompt-item-description {
+  font-size: 0.95rem;
+  color: var(--gray-100);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.btn-icon:hover {
+  background: var(--gray-700);
+}
+
+.icon-trash {
+  width: 20px;
+  height: 20px;
+  stroke: var(--alert-600);
+}
+
+.open-toggle {
+  position: absolute;
+  top: 62px;
+  left: 62px;
+  z-index: 10;
+  margin-right: 12px;
+}
+
+@media (max-width:950px) {
+  main.main {
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+    left: 20px;
+    top: 20px;
+    padding: 40px;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 300px;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .open-toggle {
+    display:block;
+    top: 38px;
+    z-index: 10;
+    margin-right: 12px;
+  }
+}
+
+
+
+
+
+
+
+
